@@ -1,6 +1,6 @@
 Index: CMakeLists.txt
 ===================================================================
---- CMakeLists.txt	(revision 11687)
+--- CMakeLists.txt	(revision 11689)
 +++ CMakeLists.txt	(working copy)
 @@ -101,6 +101,7 @@
  		${CMAKE_CURRENT_SOURCE_DIR}/csctapi
@@ -109,7 +109,7 @@ Index: CMakeLists.txt
  message (STATUS "")
 Index: Makefile
 ===================================================================
---- Makefile	(revision 11687)
+--- Makefile	(revision 11689)
 +++ Makefile	(working copy)
 @@ -65,6 +65,13 @@
  
@@ -167,7 +167,7 @@ Index: Makefile
  | OSCam ver: $(VER) rev: $(SVN_REV) target: $(TARGET)\n\
 Index: config.h
 ===================================================================
---- config.h	(revision 11687)
+--- config.h	(revision 11689)
 +++ config.h	(working copy)
 @@ -1,6 +1,8 @@
  #ifndef CONFIG_H_
@@ -180,7 +180,7 @@ Index: config.h
  #define WEBIF_JQUERY 1
 Index: config.sh
 ===================================================================
---- config.sh	(revision 11687)
+--- config.sh	(revision 11689)
 +++ config.sh	(working copy)
 @@ -1,6 +1,6 @@
  #!/bin/sh
@@ -253,7 +253,7 @@ Index: config.sh
  		OSX_VER=${1:-10.10}
 Index: globals.h
 ===================================================================
---- globals.h	(revision 11687)
+--- globals.h	(revision 11689)
 +++ globals.h	(working copy)
 @@ -393,7 +393,7 @@
  #define CS_ECM_RINGBUFFER_MAX	0x10	// max size for ECM last responsetimes ringbuffer. Keep this set to power of 2 values!
@@ -274,9 +274,9 @@ Index: globals.h
  	LLIST			*emmstat;						// emm stats
 Index: module-dvbapi.c
 ===================================================================
---- module-dvbapi.c	(revision 11687)
+--- module-dvbapi.c	(revision 11689)
 +++ module-dvbapi.c	(working copy)
-@@ -2644,6 +2644,8 @@
+@@ -2643,6 +2643,8 @@
  	er->vpid   = demux[demux_id].ECMpids[pid].VPID;
  	er->pmtpid = demux[demux_id].pmtpid;
  	er->onid   = demux[demux_id].onid;
@@ -285,7 +285,7 @@ Index: module-dvbapi.c
  	er->msgid  = msgid;
  
  #ifdef WITH_STAPI5
-@@ -2691,13 +2693,14 @@
+@@ -2690,13 +2692,14 @@
  		if(caid_is_fake(demux[demux_id].ECMpids[pid].CAID) || caid_is_biss_fixed(demux[demux_id].ECMpids[pid].CAID))
  		{
  			int32_t j, n;
@@ -303,7 +303,7 @@ Index: module-dvbapi.c
  			{
  				i2b_buf(2, demux[demux_id].STREAMpids[j], er->ecm + n);
  				er->ecm[2] += 2;
-@@ -2704,6 +2707,16 @@
+@@ -2703,6 +2706,16 @@
  				er->ecmlen += 2;
  			}
  
@@ -11494,7 +11494,7 @@ Index: module-emulator.c
 +#endif // WITH_EMU
 Index: oscam.c
 ===================================================================
---- oscam.c	(revision 11687)
+--- oscam.c	(revision 11689)
 +++ oscam.c	(working copy)
 @@ -41,6 +41,11 @@
  #include "reader-common.h"
@@ -11539,7 +11539,7 @@ Index: oscam.c
  	coolapi_close_all();
 Index: webif/config/dvbapi.html
 ===================================================================
---- webif/config/dvbapi.html	(revision 11687)
+--- webif/config/dvbapi.html	(revision 11689)
 +++ webif/config/dvbapi.html	(working copy)
 @@ -56,7 +56,7 @@
  			</TD>
